@@ -47,5 +47,26 @@ class GameLogic:
             score += counts[5] * 50
 
         return score
+   
+
+    @staticmethod
+    def validate_keepers(roll, keepers):
+        if len(keepers) > len(roll):
+            return False
+
+        roll_counts = [0] * 7
+        keepers_counts = [0] * 7
+
+        for die in roll:
+            roll_counts[die] += 1
+
+        for die in keepers:
+            keepers_counts[die] += 1
+
+        for i in range(1, 7):
+            if keepers_counts[i] > roll_counts[i]:
+                return False
+
+        return True
 
     
