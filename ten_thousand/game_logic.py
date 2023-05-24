@@ -47,7 +47,6 @@ class GameLogic:
             score += counts[5] * 50
 
         return score
-   
 
     @staticmethod
     def validate_keepers(roll, keepers):
@@ -69,4 +68,6 @@ class GameLogic:
 
         return True
 
+if __name__ == "__main__":
+    gameR = GameLogic()
     

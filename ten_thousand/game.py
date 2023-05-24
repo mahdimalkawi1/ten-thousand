@@ -1,5 +1,6 @@
 from game_logic import GameLogic
 
+
 class play(GameLogic):
     def play(self):
         print("Welcome to Ten Thousand")
