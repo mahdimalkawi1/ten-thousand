@@ -3,6 +3,20 @@ import random
 
 class GameLogic:
     @staticmethod
+    def get_scorers(dice):
+        # dice= tuple(dice)
+        all_dice_score = GameLogic.calculate_score(dice)
+        if all_dice_score == 0:
+            return tuple()
+        scorers = []
+        for i, val in enumerate(dice):
+            sub_roll = dice[:i] + dice[i+1:]
+            sub_score = GameLogic.calculate_score(sub_roll)
+            if sub_score != all_dice_score:
+                scorers.append(val)
+        return tuple(scorers)
+    
+    @staticmethod
     def roll_dice(num_dice):
         if num_dice < 1 or num_dice > 6:
             raise ValueError("Number of dice must be between 1 and 6.")
